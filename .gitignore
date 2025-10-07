@@ -1,0 +1,27 @@
+# Dependencies
+/backend/node_modules
+/frontend/node_modules
+
+# Environment variables (Rất quan trọng, để bảo vệ chuỗi kết nối MongoDB)
+.env
+*.env 
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.log
+
+# Build outputs (Output của Vite build là 'dist')
+/frontend/dist 
+/build
+/dist
+/out
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Caching
+.vite

@@ -1,9 +1,11 @@
+// frontend/src/main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ConfigProvider, App as AntdApp } from 'antd'; 
-import InventoryPage from './pages/InventoryPage.jsx';
+import App from './App.jsx'; // Import App mới
 import './index.css'; 
 
+// Thiết lập theme Ant Design
 const customTheme = {
   token: {
     colorPrimary: '#0052D9', 
@@ -15,8 +17,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ConfigProvider theme={customTheme}>
       <AntdApp> 
-        {/* Chỉ load trang quản lý kho */}
-        <InventoryPage />
+        {/* Render App Component */}
+        <App />
       </AntdApp>
     </ConfigProvider>
   </React.StrictMode>,

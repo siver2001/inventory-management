@@ -1,0 +1,80 @@
+/* frontend/src/index.css (SỬA LỖI: Đặt @import lên đầu tiên) */
+
+/* Đảm bảo Ant Design reset được tải */
+@import 'antd/dist/reset.css'; 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; } /* Giảm opacity sâu hơn để hiệu ứng rõ ràng hơn */
+    100% { opacity: 1; }
+}
+
+/* Áp dụng animation cho class tw-animate-pulse (để ghi đè/xác nhận) */
+.tw-animate-pulse {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Ghi đè màu chữ và icon cho mục menu có class 'alert-active-flash' */
+.ant-menu-dark .alert-active-flash .ant-menu-title-content a,
+.ant-menu-dark .alert-active-flash .ant-menu-title-content span {
+    /* Đảm bảo màu đỏ cho cả label và số lượng */
+    color: #ff4d4f !important; 
+    text-shadow: 0 0 5px rgba(255, 77, 79, 0.5); /* Thêm đổ bóng nhẹ để nổi bật */
+}
+
+/* Ép buộc màu đỏ cho ICON */
+.ant-menu-dark .alert-active-flash .anticon {
+    color: #ff4d4f !important; 
+}
+
+/* Áp dụng animation pulse cho item menu khi có lỗi */
+.ant-menu-dark .alert-active-flash.tw-animate-pulse {
+    /* Mặc dù animation đã được định nghĩa, đảm bảo nó được áp dụng */
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Đảm bảo trạng thái SELECTED cũng không ghi đè màu đỏ */
+.ant-menu-dark .alert-active-flash.ant-menu-item-selected .ant-menu-title-content a,
+.ant-menu-dark .alert-active-flash.ant-menu-item-selected .ant-menu-title-content span,
+.ant-menu-dark .alert-active-flash.ant-menu-item-selected .anticon {
+    color: #ff4d4f !important;
+}
+
+/* Tùy chỉnh input hiện đại */
+.ant-input-affix-wrapper.modern-input, 
+.ant-input-password.modern-input {
+    border-radius: 8px !important; /* Bo tròn Input */
+    height: 48px !important; /* Chiều cao input */
+    border: 1px solid #d9d9d9 !important; /* Border mặc định */
+    transition: all 0.3s ease; /* Chuyển động mượt mà */
+}
+
+.ant-input-affix-wrapper.modern-input:hover,
+.ant-input-password.modern-input:hover {
+    border-color: #2193B0 !important; /* Màu border khi hover */
+}
+
+.ant-input-affix-wrapper.modern-input.ant-input-affix-wrapper-focused,
+.ant-input-password.modern-input.ant-input-affix-wrapper-focused {
+    border-color: #2193B0 !important; /* Màu border khi focus */
+    box-shadow: 0 0 0 2px rgba(33, 147, 176, 0.2) !important; /* Đổ bóng khi focus */
+}
+
+/* Tùy chỉnh nút hiện đại */
+.modern-button.ant-btn-primary:hover,
+.modern-button.ant-btn-primary:focus {
+    transform: translateY(-2px); /* Nút nhích lên nhẹ khi hover */
+    box-shadow: 0 6px 20px rgba(33, 147, 176, 0.6) !important; /* Đổ bóng mạnh hơn khi hover */
+    opacity: 0.9; /* Giảm opacity nhẹ khi hover */
+}
+
+/* Đảm bảo Ant Design message có thể được điều chỉnh nếu cần */
+.ant-message-notice-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
